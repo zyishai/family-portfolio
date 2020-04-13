@@ -1,0 +1,183 @@
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 40px;
+    overflow: visible;
+}
+
+nav, nav.active {
+    padding: 0 20px;
+}
+
+#nav-trigger {
+    display: initial;
+}
+
+nav .menu-label {
+    display: inline-block;
+}
+
+nav .menu {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    height: 2px;
+    width: 25px;
+    background: #000;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+nav .menu::before,
+nav .menu::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background: #000;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+nav .menu::before {
+    top: -7px;
+}
+
+nav .menu::after {
+    bottom: -7px;
+}
+
+#nav-trigger:checked ~ nav {
+    box-shadow: none;
+}
+
+#nav-trigger:checked ~ nav .menu-label .menu {
+    transform: rotate(315deg);
+}
+
+#nav-trigger:checked ~ nav .menu-label .menu::before,
+#nav-trigger:checked ~ nav .menu-label .menu::after {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+#nav-trigger:checked ~ nav ul {
+    height: 100vh;
+}
+
+nav ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #fff;
+    overflow: hidden;
+    transition: .5s;
+}
+
+nav ul li a {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.sec {
+    height: 100vh;
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.intro {
+    align-items: center;
+}
+
+.intro h1 {
+    font-size: 3rem;
+    transform: translateY(-50%);
+    opacity: 0;
+    animation-name: drop-reveal;
+}
+
+.intro h1 .text {
+    padding: 0;
+    margin: 0;
+}
+
+.intro h1 .text::after,
+.intro h1 .auxiliry {
+    display: none;
+}
+
+.intro p {
+    animation-delay: 1s;
+}
+
+.intro .btn {
+    animation-delay: 1.7s;
+}
+
+.member {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+}
+
+.member .content {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 30px;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: .5s;
+}
+
+.member .content.fade-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.member .content .next {
+    margin-top: 40px;
+    display: inline-flex;
+    height: 30px;
+    width: 30px;
+    border: 2px solid rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.member .content .next img {
+    transition: .5s;
+}
+
+.member .content .next:hover img {
+    transform: translateY(2px);
+}
+
+.member .img-box {
+    order: 1;
+}
+
+.member .img-box img {
+    transform: translateX(0);
+    transition: 1s;
+}
